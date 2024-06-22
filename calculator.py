@@ -1,5 +1,5 @@
 import tkinter as tk
-
+from PIL import ImageTk
 
 calculation = ""
 
@@ -36,8 +36,8 @@ def delete():
 
 
 root = tk.Tk()
-root.geometry("300x275")
-text_results = tk.Text(root, height=2, width=16, font=("Arial",24))
+root.geometry("320x420")
+text_results = tk.Text(root, height=1, width=16, font=("Arial",24))
 text_results.grid(columnspan=5)
 #number keys
 btn1 = tk.Button(root, text="1", command=lambda: add_to_calculation(1), width=5, font=("Arial",14))
@@ -65,17 +65,36 @@ btn0.grid(row=6,column=1,columnspan=2   )
 btndel = tk.Button(root, text="del", command=delete ,width=5, font=("Arial",14))
 btndel.grid(row=6, column=3)
 
-btnadd = tk.Button(root, text="+", command=lambda: add_to_calculation("+"), width=5, font=("Arial",14))
+btnadd = tk.Button(root, text="+", command=lambda: add_to_calculation("+"), font=("Arial", 14))
+
+
+# Load the image and set it to the button
+add = ImageTk.PhotoImage(file="Untitled.png")
+
+
+btnadd.config(image=add)
+
+# Use grid layout manager to place the button
 btnadd.grid(row=2, column=4)
 
-btnminus = tk.Button(root, text="-", command=lambda: add_to_calculation("-"), width=5, font=("Arial",14))
+
+btnminus = tk.Button(root, text="-", command=lambda: add_to_calculation("-"),  font=("Arial",14))
 btnminus.grid(row=3, column=4)
+minus = ImageTk.PhotoImage(file="minus.png")
+btnminus.config(image=minus)
 
-btnmultiply = tk.Button(root, text="*", command=lambda: add_to_calculation("*"), width=5, font=("Arial",14))
+
+
+btnmultiply = tk.Button(root, text="*", command=lambda: add_to_calculation("*"), font=("Arial",14))
 btnmultiply.grid(row=4, column=4)
+multi = ImageTk.PhotoImage(file="multiply.png")
+btnmultiply.config(image=multi)
 
-btndivide = tk.Button(root, text="/", command=lambda: add_to_calculation("/"), width=5, font=("Arial",14))
+
+btndivide = tk.Button(root, text="/", command=lambda: add_to_calculation("/"),  font=("Arial",14))
 btndivide.grid(row=6, column=4)
+divide = ImageTk.PhotoImage(file="divide.png")
+btndivide.config(image=divide)
 
 btnresult = tk.Button(root, text="=", command=evaluate_calculation, width=18, font=("Arial",14))
 btnresult.grid(row=7, column=1, columnspan=3)
