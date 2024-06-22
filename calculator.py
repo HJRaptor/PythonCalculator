@@ -18,6 +18,7 @@ def evaluate_calculation():
         calculation = str(eval(calculation))
         text_results.delete(1.0,"end")
         text_results.insert(1.0,calculation)
+        text_results.see(tk.END)
 
     except:
         clear_field()
@@ -39,6 +40,9 @@ root = tk.Tk()
 root.geometry("290x375")
 text_results = tk.Text(root, height=1, width=16, font=("Consolas",24))
 text_results.grid(columnspan=5,sticky='nesw')
+
+
+
 #number keys
 btn1 = tk.Button(root, text="1", command=lambda: add_to_calculation(1), font=("Consolas",14), bg="white",highlightthickness = 5, bd = 0)
 btn1.grid(row=4, column=1,sticky='nesw')
